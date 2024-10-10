@@ -2,11 +2,11 @@ spring:
   datasource:
     username: root
     password: mysql@123!
-    url: jdbc:mysql://localhost:3306/springsecuritydemo
+    url: jdbc:mysql://localhost:3306/springsecuritydemo-roles
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 logging:
   level:
     org:

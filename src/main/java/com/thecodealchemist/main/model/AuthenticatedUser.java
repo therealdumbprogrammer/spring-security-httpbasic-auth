@@ -9,13 +9,15 @@ import java.util.List;
 
 public class AuthenticatedUser implements UserDetails {
     private User user;
+    private List<GrantedAuthority> authorities;
 
-    public AuthenticatedUser(User user) {
+    public AuthenticatedUser(User user, List<GrantedAuthority> authorities) {
         this.user = user;
+        this.authorities = authorities;
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return authorities;
     }
 
     @Override

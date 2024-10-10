@@ -18,6 +18,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authReq -> {
                     authReq
                             .requestMatchers("/api/user/register").permitAll()
+                            .requestMatchers("/admin").hasRole("ADMIN") //ROLE_<name of the role> => ROLE_ADMIN
+                            .requestMatchers("/api/greet/update").hasAuthority("USER_WRITE_PERM")
                             .anyRequest().authenticated();
                 })
                 .httpBasic(Customizer.withDefaults())
